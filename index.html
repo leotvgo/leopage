@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>LEO GitHub 文件加速</title>
   <style>
     * {
@@ -23,42 +24,45 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 40px 20px 20px;
+      padding: 20px;
       background-color: #3a3a3a;
       color: #ae854b;
       text-align: center;
+      min-height: 50vh;
     }
 
     .logo {
-      width: 90px;
-      max-width: 25vw;
-      margin-bottom: 20px;
+      width: 80px;
+      max-width: 20vw;
+      margin-bottom: 15px;
     }
 
     h1 {
-      font-size: 28px;
-      margin: 10px 0;
+      font-size: 22px;
+      margin: 8px 0;
     }
 
     .description {
-      font-size: 16px;
+      font-size: 14px;
       margin: 4px 0;
+      line-height: 1.4;
     }
 
     form.block {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-top: 20px;
+      margin-top: 15px;
       width: 100%;
       max-width: 600px;
     }
 
     .url {
-      padding: 10px;
-      font-size: 16px;
+      padding: 12px;
+      font-size: 14px;
       border: 2px solid #ccc;
       border-radius: 4px;
+      width: 100%;
     }
 
     .url:focus {
@@ -74,6 +78,7 @@
       border-radius: 4px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      width: 100%;
     }
 
     .btn:hover {
@@ -82,24 +87,26 @@
     }
 
     .info-section {
-      padding: 20px;
-      font-size: 14px;
+      padding: 15px;
+      font-size: 13px;
       background-color: #fff;
     }
 
     .tips, .example {
       color: #555;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+      line-height: 1.5;
     }
 
     .example p {
       margin: 4px 0;
+      font-size: 13px;
     }
 
     footer {
       text-align: center;
-      margin-top: 30px;
-      font-size: 13px;
+      margin-top: 20px;
+      font-size: 12px;
     }
 
     footer a {
@@ -107,17 +114,44 @@
       text-decoration: none;
     }
 
-    @media (min-width: 600px) {
+    /* 移动端特定样式 */
+    @media (max-width: 480px) {
+      .flex {
+        padding: 15px 10px;
+      }
+      
+      h1 {
+        font-size: 20px;
+      }
+      
+      .description {
+        font-size: 13px;
+      }
+      
+      .info-section {
+        padding: 10px;
+      }
+    }
+
+    /* PC端特定样式 */
+    @media (min-width: 768px) {
+      .flex {
+        padding: 40px 20px;
+      }
+      
+      h1 {
+        font-size: 28px;
+      }
+      
       form.block {
         flex-direction: row;
       }
-
+      
       .url {
         flex: 1;
       }
-
+      
       .btn {
-        flex-shrink: 0;
         width: 120px;
       }
     }
@@ -131,6 +165,19 @@
       window.open(base + input);
       return false;
     }
+
+    // 设备检测
+    function detectDevice() {
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      if (isMobile) {
+        document.documentElement.classList.add('mobile-device');
+      } else {
+        document.documentElement.classList.add('desktop-device');
+      }
+    }
+    
+    // 页面加载时执行设备检测
+    window.addEventListener('DOMContentLoaded', detectDevice);
   </script>
 </head>
 <body>
@@ -155,12 +202,12 @@
     </div>
     <div class="example">
       <p>✅ 合法输入示例：</p>
-      <p>分支源码：https://github.com/LEO/project/archive/master.zip</p>
-      <p>release 文件：https://github.com/LEO/project/releases/download/v0.1.0/example.zip</p>
-      <p>分支文件：https://github.com/LEO/project/blob/master/filename</p>
+      <p>分支源码：https://github.com/Leo/project/archive/master.zip</p>
+      <p>release 文件：https://github.com/Leo/project/releases/download/v0.1.0/example.zip</p>
+      <p>分支文件：https://github.com/Leo/project/blob/master/filename</p>
     </div>
     <footer>
-      项目由 <a href="https://api.leo123.cn/" target="_blank">LEO</a> 部署，开源自 GitHub。
+      项目由 <a href="https://api.leo123.cn/" target="_blank">Leo</a> 部署，开源自 GitHub。
     </footer>
   </div>
 </body>
